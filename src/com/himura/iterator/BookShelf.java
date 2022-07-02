@@ -1,27 +1,25 @@
 package com.himura.iterator;
 
-
-
-// 表示一个集合
 public class BookShelf implements Aggregate{
     private Book[] books;
-    private int last = 0;
+    private int index;
 
-    public BookShelf(int capacity) {
-        this.books = new Book[capacity];
+    public BookShelf(int maxSize) {
+        books = new Book[maxSize];
     }
 
-    public Book getBook(int index) {
-        return books[index];
-    }
-
-    public void addBook(Book book) {
-        books[last++] = book;
+    public void add(Book book) {
+        books[index++] = book;
     }
 
     public int getLength() {
-        return last;
+        return index;
     }
+
+    public Book getIndex(int i) {
+        return books[i];
+    }
+
     @Override
     public Iterator iterator() {
         return new BookShelfIterator(this);

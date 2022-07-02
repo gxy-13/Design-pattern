@@ -1,28 +1,19 @@
 package com.himura.iterator;
 
 public class BookShelfIterator implements Iterator{
+
     private BookShelf bookShelf;
-    private int index;
+    private int lastIndex;
 
     public BookShelfIterator(BookShelf bookShelf) {
         this.bookShelf = bookShelf;
-        index = 0;
     }
 
-    @Override
-    public boolean hasNext() {
-        if(index < bookShelf.getLength()) {
-            return true;
-        } else {
-            return false;
-        }
+    public Boolean hasNext() {
+        return lastIndex < bookShelf.getLength();
     }
 
-    @Override
     public Object next() {
-        Book book = bookShelf.getBook(index);
-        // 使迭代器指向下一个元素
-        index++;
-        return book;
+        return bookShelf.getIndex(lastIndex++);
     }
 }
