@@ -1,15 +1,15 @@
 package com.himura.iterator;
 
 public class BookShelf implements Aggregate{
-    private Book[] books;
-    private int index;
+    private Book[] bookshelf;
+    private int index = 0;
 
-    public BookShelf(int maxSize) {
-        books = new Book[maxSize];
+    public BookShelf (int max) {
+        bookshelf = new Book[max];
     }
 
     public void add(Book book) {
-        books[index++] = book;
+        bookshelf[index++] = book;
     }
 
     public int getLength() {
@@ -17,10 +17,9 @@ public class BookShelf implements Aggregate{
     }
 
     public Book getIndex(int i) {
-        return books[i];
+        return bookshelf[i];
     }
 
-    @Override
     public Iterator iterator() {
         return new BookShelfIterator(this);
     }

@@ -2,8 +2,8 @@ package com.himura.iterator;
 
 public class Book {
     private String name;
-    public Book(String string) {
-        this.name = string;
+    public Book(String name) {
+        this.name = name;
     }
     public String getName() {
         return name;
